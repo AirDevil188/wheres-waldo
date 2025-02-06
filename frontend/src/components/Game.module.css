@@ -1,0 +1,11 @@
+.gameSection {
+  object-fit: cover;
+}
+
+.characterSelectMenu {
+  display: none;
+}
+.characterSelectMenu > form {
+  display: flex;
+  flex-flow: column wrap;
+}
