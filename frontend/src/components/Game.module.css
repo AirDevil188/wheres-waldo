@@ -4,6 +4,9 @@
 
 .characterSelectMenu {
   display: none;
+  position: absolute;
+  width: 100px;
+  height: 120px;
 }
 .characterSelectMenu > form {
   display: flex;
