@@ -1,0 +1,43 @@
+.startScreenSection {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  gap: 15px;
+}
+
+.boxContainer {
+  display: flex;
+  width: 20rem;
+  height: 20rem;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.gameNameSection {
+  width: 100%;
+  padding: 1rem;
+  color: #fff;
+  background-color: black;
+  opacity: 60%;
+  text-align: center;
+  cursor: pointer;
+}
+
+.startScreenSection a {
+  background-size: cover;
+  text-decoration: none;
+  color: #fff;
+}
+
+.startScreenSection a:nth-child(2) {
+  background-image: url("../assets//artworks/artwork_bg.webp");
+}
+
+.startScreenSection a:nth-child(3) {
+  background-image: url("../assets/artworks/artwork_bg_2.webp");
+}
+
+.startScreenSection a:nth-child(4) {
+  background-image: url("../assets/artworks/artwork_bg_3.webp");
+}
