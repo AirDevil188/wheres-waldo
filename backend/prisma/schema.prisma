@@ -12,3 +12,17 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Player {
+  id       String @id @default(uuid())
+  username String @unique
+  score    Int
+}
+
+model Target {
+  id    String @id @default(uuid())
+  name  String @unique
+  image String
+  xCord Int
+  yCord Int
+}
