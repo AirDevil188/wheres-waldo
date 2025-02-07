@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
 import App from "../App";
-import Game from "../components/Game";
+import StartScreen from "../components/StartScreen";
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -9,7 +9,7 @@ const Router = () => {
       children: [
         {
           path: "/",
-          element: <Game />,
+          element: <StartScreen />,
         },
       ],
     },
