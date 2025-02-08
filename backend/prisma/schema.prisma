@@ -26,3 +26,9 @@ model Target {
   xCord Int
   yCord Int
 }
+
+model Game {
+  id       String @id @default(uuid())
+  level    String
+  imageUrl String
+}
