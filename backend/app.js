@@ -23,5 +23,3 @@ app.use("/", gameRouter);
 app.listen(process.env.PORT, () =>
   console.log(`App is listening on the ${process.env.PORT} `)
 );
-
-console.log("where i am here to start new journey....");
