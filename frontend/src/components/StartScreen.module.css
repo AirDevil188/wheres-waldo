@@ -21,6 +21,7 @@
   background-color: black;
   opacity: 60%;
   text-align: center;
+  text-transform: uppercase;
   cursor: pointer;
 }
 
@@ -31,13 +32,13 @@
 }
 
 .startScreenSection a:nth-child(2) {
-  background-image: url("../assets//artworks/artwork_bg.webp");
+  background-image: url("https://res.cloudinary.com/ddxkbe6lh/image/upload/v1738928321/wheres_waldo/levels/mrnprcsbvutjkvspurse.webp");
 }
 
 .startScreenSection a:nth-child(3) {
-  background-image: url("../assets/artworks/artwork_bg_2.webp");
+  background-image: url("https://res.cloudinary.com/ddxkbe6lh/image/upload/v1738928321/wheres_waldo/levels/qefhrkvx1zrdlnlfneor.webp");
 }
 
 .startScreenSection a:nth-child(4) {
-  background-image: url("../assets/artworks/artwork_bg_3.webp");
+  background-image: url("https://res.cloudinary.com/ddxkbe6lh/image/upload/v1738928321/wheres_waldo/levels/vd4wndr795ecfgr8khvw.webp");
 }
