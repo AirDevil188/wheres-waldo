@@ -60,3 +60,15 @@ describe("all game level routes work", () => {
       .expect(200, done);
   });
 });
+
+describe("error checking, for specific game route", () => {
+  test("error check test", (done) => {
+    request(app)
+      .get("/game/1")
+      .expect("Content-Type", /json/)
+      .expect({
+        message: "Level not found",
+      })
+      .expect(404, done);
+  });
+});
