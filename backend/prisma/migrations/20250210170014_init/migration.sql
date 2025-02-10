@@ -3,7 +3,6 @@ CREATE TABLE "Player" (
     "id" TEXT NOT NULL,
     "username" TEXT NOT NULL,
     "score" INTEGER NOT NULL,
-    "gameId" TEXT NOT NULL,
 
     CONSTRAINT "Player_pkey" PRIMARY KEY ("id")
 );
@@ -23,6 +22,7 @@ CREATE TABLE "Target" (
 CREATE TABLE "Game" (
     "id" TEXT NOT NULL,
     "level" TEXT NOT NULL,
+    "imageUrl" TEXT NOT NULL,
 
     CONSTRAINT "Game_pkey" PRIMARY KEY ("id")
 );
@@ -31,10 +31,4 @@ CREATE TABLE "Game" (
 CREATE UNIQUE INDEX "Player_username_key" ON "Player"("username");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Player_gameId_key" ON "Player"("gameId");
-
--- CreateIndex
 CREATE UNIQUE INDEX "Target_name_key" ON "Target"("name");
-
--- AddForeignKey
-ALTER TABLE "Player" ADD CONSTRAINT "Player_gameId_fkey" FOREIGN KEY ("gameId") REFERENCES "Game"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
