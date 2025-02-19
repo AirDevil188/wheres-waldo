@@ -15,14 +15,15 @@ model Player {
 
 model Target {
   id    String @id @default(uuid())
-  name  String @unique
+  name  String
   image String
   xCord Int
   yCord Int
+  level String
 }
 
 model Game {
   id       String @id @default(uuid())
-  level    String
+  level    String @unique
   imageUrl String
 }
