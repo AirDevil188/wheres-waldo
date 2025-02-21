@@ -10,3 +10,20 @@ export const getLevels = async () => {
     throw new Error("Levels Not Found!");
   }
 };
+
+export const getLevel = async ({ params }) => {
+  const { id } = params;
+  const res = await handleFetch(`/game/${id}`);
+
+  if (res.ok) {
+    return await res.json();
+  }
+
+  if (res.status === 404) {
+    throw new Error("Level not Found!");
+  }
+
+  if (res.status === 403) {
+    throw new Error("You are not authorized to access this page!");
+  }
+};
