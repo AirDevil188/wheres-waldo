@@ -3,12 +3,10 @@ import styles from "./StartScreen.module.css";
 
 const StartScreen = () => {
   const levels = useLoaderData();
+
   return (
     <main>
       <section className={styles.startScreenSection}>
-        <section className={styles.headingSection}>
-          <h3>Choose a level: </h3>
-        </section>
         {levels
           ? levels.map((level) => {
               return (
