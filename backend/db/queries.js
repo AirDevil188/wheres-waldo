@@ -39,7 +39,47 @@ async function getGameLevel(id) {
   }
 }
 
+async function getGameTargets(level) {
+  try {
+    return await prisma.target.findMany({
+      where: {
+        level: level,
+      },
+    });
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
+}
+
+async function validateTarget(name, xCord, yCord) {
+  try {
+    return await prisma.target.findFirst({
+      where: {
+        name: name,
+        xCordMax: {
+          gte: xCord,
+        },
+        xCordMin: {
+          lte: xCord,
+        },
+        yCordMax: {
+          gte: yCord,
+        },
+        yCordMin: {
+          lte: yCord,
+        },
+      },
+    });
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
+}
+
 module.exports = {
   getAllGameLevels,
   getGameLevel,
+  getGameTargets,
+  validateTarget,
 };
