@@ -1,5 +1,16 @@
+main {
+  width: 100vw;
+  flex-flow: column;
+  gap: 15px;
+}
+
 .gameSection {
-  object-fit: cover;
+}
+
+.gameSection > img {
+  width: 100%;
+  position: relative;
+  height: 100%;
 }
 
 .characterSelectMenu {
@@ -11,4 +22,17 @@
 .characterSelectMenu > form {
   display: flex;
   flex-flow: column wrap;
+}
+
+.targetCharactersSection {
+  display: flex;
+  gap: 10px;
+}
+
+.character {
+}
+
+.character > section > img {
+  width: 100px;
+  height: 100px;
 }
