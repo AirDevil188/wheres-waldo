@@ -21,7 +21,6 @@ model Target {
   xCordMax Int
   yCordMin Int
   yCordMax Int
-  level    String
 }
 
 model Game {
