@@ -1,6 +1,7 @@
+import PropTypes from "prop-types";
 import { useEffect, useRef, useState } from "react";
 
-const Stopwatch = () => {
+const Stopwatch = ({ gameStatus, setTime }) => {
   const [startTime, setStartTime] = useState(null);
   const [now, setNow] = useState(null);
   const intervalRef = useRef();
@@ -13,6 +14,17 @@ const Stopwatch = () => {
       setNow(Date.now());
     }, 10);
   }, []);
+
+  const handleScore = () => {
+    setTime(secondsPassed);
+  };
+
+  useEffect(() => {
+    if (gameStatus === "finished") {
+      handleScore();
+      clearInterval(intervalRef.current);
+    }
+  }, [gameStatus]);
 
   let secondsPassed = 0;
   if (startTime !== null && now !== null) {
@@ -36,6 +48,11 @@ const Stopwatch = () => {
       <strong>{timeFormat(secondsPassed)}</strong>
     </section>
   );
+};
+
+Stopwatch.propTypes = {
+  gameStatus: PropTypes.string.isRequired,
+  setTime: PropTypes.func.isRequired,
 };
 
 export default Stopwatch;
