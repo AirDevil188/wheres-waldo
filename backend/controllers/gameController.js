@@ -12,7 +12,7 @@ const getAllGameLevels = asyncHandler(async (req, res, next) => {
 
 const getGameLevel = asyncHandler(async (req, res, next) => {
   const level = await db.getGameLevel(req.params.id);
-  const characters = await db.getGameTargets(level.level);
+  const characters = await db.getGameTargets();
   if (!level) {
     return res.status(404).json({ message: "Level not found" });
   }
