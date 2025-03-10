@@ -1,8 +1,20 @@
+button {
+  font-size: 4rem;
+}
+
 .startScreenSection {
   display: flex;
   flex-flow: column wrap;
   align-items: center;
   gap: 15px;
+}
+
+.startScreenMainSection {
+  background-image: url("https://res.cloudinary.com/ddxkbe6lh/image/upload/v1740312900/wheres_waldo/levels/mftze9ln3armpi57s8ia.webp");
+}
+
+.logo {
+  width: 100%;
 }
 
 .boxContainer {
@@ -31,22 +43,17 @@
   color: #fff;
 }
 
-.startScreenSection a:nth-child(1) {
-  background-image: url("https://res.cloudinary.com/ddxkbe6lh/image/upload/v1738928321/wheres_waldo/levels/mrnprcsbvutjkvspurse.webp");
-}
-
-.startScreenSection a:nth-child(2) {
-  background-image: url("https://res.cloudinary.com/ddxkbe6lh/image/upload/v1738928321/wheres_waldo/levels/qefhrkvx1zrdlnlfneor.webp");
-}
-
-.startScreenSection a:nth-child(3) {
-  background-image: url("https://res.cloudinary.com/ddxkbe6lh/image/upload/v1738928321/wheres_waldo/levels/vd4wndr795ecfgr8khvw.webp");
-}
-
 @media (min-width: 800px) {
   .startScreenSection {
-    flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
+  }
+
+  button {
+    font-size: 8rem;
+  }
+
+  button:hover {
+    color: aquamarine;
   }
 }
