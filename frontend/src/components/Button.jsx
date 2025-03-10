@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-const Button = ({ text, type, onClick, id, value, className }) => {
+const Button = ({ text, type, onClick, id, value, className, name }) => {
   return (
     <button
       type={type}
@@ -8,6 +8,7 @@ const Button = ({ text, type, onClick, id, value, className }) => {
       value={value}
       id={id}
       className={className}
+      name={name}
     >
       {text}
     </button>
@@ -20,6 +21,7 @@ Button.propTypes = {
   value: PropTypes.string,
   className: PropTypes.string,
   id: PropTypes.string,
+  name: PropTypes.string,
   onClick: PropTypes.func,
 };
 
