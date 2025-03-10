@@ -25,6 +25,5 @@ model Target {
 
 model Game {
   id       String @id @default(uuid())
-  level    String @unique
   imageUrl String
 }
