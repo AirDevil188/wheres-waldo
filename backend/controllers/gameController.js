@@ -34,8 +34,17 @@ const validateTarget = asyncHandler(async (req, res, next) => {
   return res.json({ message: "Target Not Found" });
 });
 
+const saveWinner = asyncHandler(async (req, res, next) => {
+  const { username, score } = req.body;
+
+  const winner = await db.saveWinner(username, score);
+
+  return res.json(winner);
+});
+
 module.exports = {
   getAllGameLevels,
   getGameLevel,
   validateTarget,
+  saveWinner,
 };
