@@ -14,24 +14,11 @@ const prisma = new PrismaClient({
 });
 async function startUp() {
   try {
-    await prisma.game.createMany({
-      data: [
-        {
-          level: "easy",
-          imageUrl:
-            "https://res.cloudinary.com/ddxkbe6lh/image/upload/v1740312900/wheres_waldo/levels/mftze9ln3armpi57s8ia.webp",
-        },
-        {
-          level: "medium",
-          imageUrl:
-            "https://res.cloudinary.com/ddxkbe6lh/image/upload/v1740312900/wheres_waldo/levels/mftze9ln3armpi57s8ia.webp",
-        },
-        {
-          level: "hard",
-          imageUrl:
-            "https://res.cloudinary.com/ddxkbe6lh/image/upload/v1740312900/wheres_waldo/levels/mftze9ln3armpi57s8ia.webp",
-        },
-      ],
+    await prisma.game.create({
+      data: {
+        imageUrl:
+          "https://res.cloudinary.com/ddxkbe6lh/image/upload/v1740312900/wheres_waldo/levels/mftze9ln3armpi57s8ia.webp",
+      },
     });
 
     await prisma.target.createMany({
