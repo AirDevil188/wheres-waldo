@@ -1,0 +1,25 @@
+button {
+  padding: 0 12px;
+  text-transform: uppercase;
+  background-color: #4e7988;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+  margin: 12px 0 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 12px;
+  border-width: 0;
+}
+
+.button-9:disabled {
+  cursor: default;
+}
+
+.button-9:focus {
+  box-shadow:
+    rgba(50, 50, 93, 0.1) 0 0 0 1px inset,
+    rgba(50, 50, 93, 0.2) 0 6px 15px 0,
+    rgba(0, 0, 0, 0.1) 0 2px 2px 0,
+    rgba(50, 151, 211, 0.3) 0 0 0 4px;
+}
