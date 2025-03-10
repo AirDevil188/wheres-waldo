@@ -15,10 +15,9 @@ const prisma = new PrismaClient({
 
 async function getAllGameLevels() {
   try {
-    return prisma.game.findMany({
+    return prisma.game.findFirst({
       select: {
         id: true,
-        level: true,
       },
     });
   } catch (err) {
@@ -33,6 +32,15 @@ async function getGameLevel(id) {
         id: id,
       },
     });
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
+}
+
+async function getGameTargets() {
+  try {
+    return await prisma.target.findMany();
   } catch (err) {
     console.log(err);
     return err;
@@ -81,6 +89,7 @@ async function saveWinner(username, score) {
 module.exports = {
   getAllGameLevels,
   getGameLevel,
+  getGameTargets,
   validateTarget,
   saveWinner,
 };
