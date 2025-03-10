@@ -10,4 +10,6 @@ gameRouter.get("/game/:id", gameController.getGameLevel);
 
 gameRouter.post("/game/:id", gameController.validateTarget);
 
+gameRouter.post("/game/:id/winner", gameController.saveWinner);
+
 module.exports = gameRouter;
