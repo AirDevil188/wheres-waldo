@@ -39,19 +39,6 @@ async function getGameLevel(id) {
   }
 }
 
-async function getGameTargets(level) {
-  try {
-    return await prisma.target.findMany({
-      where: {
-        level: level,
-      },
-    });
-  } catch (err) {
-    console.log(err);
-    return err;
-  }
-}
-
 async function validateTarget(name, xCord, yCord) {
   try {
     return await prisma.target.findFirst({
@@ -77,9 +64,23 @@ async function validateTarget(name, xCord, yCord) {
   }
 }
 
+async function saveWinner(username, score) {
+  try {
+    return await prisma.player.create({
+      data: {
+        username: username,
+        score: score,
+      },
+    });
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
+}
+
 module.exports = {
   getAllGameLevels,
   getGameLevel,
-  getGameTargets,
   validateTarget,
+  saveWinner,
 };
