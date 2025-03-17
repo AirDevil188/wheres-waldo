@@ -1,5 +1,13 @@
 const asyncHandler = require("express-async-handler");
+const { body, validationResult } = require("express-validator");
 const db = require("../db/queries");
+
+const validateUser = [
+  body("username")
+    .trim()
+    .isLength({ min: 3 })
+    .withMessage("Username must be at least 3 characters long."),
+];
 
 const getAllGameLevels = asyncHandler(async (req, res, next) => {
   const levels = await db.getAllGameLevels();
@@ -34,13 +42,28 @@ const validateTarget = asyncHandler(async (req, res, next) => {
   return res.json({ message: "Target Not Found" });
 });
 
-const saveWinner = asyncHandler(async (req, res, next) => {
-  const { username, score } = req.body;
+const saveWinner = [
+  validateUser,
+  asyncHandler(async (req, res, next) => {
+    const errors = validationResult(req);
 
-  const winner = await db.saveWinner(username, score);
+    if (!errors.isEmpty()) {
+      return res.status(422).json(errors);
+    }
 
-  return res.json(winner);
-});
+    const { username, score } = req.body;
+
+    const user = await db.getUser(username);
+
+    if (user) {
+      return res.status(422).json({ errors: [{ msg: "User already exists" }] });
+    }
+
+    const winner = await db.saveWinner(username, score);
+
+    return res.json(winner);
+  }),
+];
 
 module.exports = {
   getAllGameLevels,
