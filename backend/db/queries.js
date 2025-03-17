@@ -47,6 +47,19 @@ async function getGameTargets() {
   }
 }
 
+async function getUser(username) {
+  try {
+    return await prisma.player.findFirst({
+      where: {
+        username: username,
+      },
+    });
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
+}
+
 async function validateTarget(name, xCord, yCord) {
   try {
     return await prisma.target.findFirst({
@@ -92,4 +105,5 @@ module.exports = {
   getGameTargets,
   validateTarget,
   saveWinner,
+  getUser,
 };
