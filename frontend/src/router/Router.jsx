@@ -1,8 +1,9 @@
-import { getLevel, getLevels } from "../utils/loaders";
+import { getLevel, getLevels, getPlayers } from "../utils/loaders";
 import App from "../App";
 import StartScreen from "../components/StartScreen";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import Game, { handleSubmitTarget } from "../components/Game";
+import HighScore from "../components/Highscore";
 
 const Router = () => {
   const router = createBrowserRouter([
@@ -20,6 +21,11 @@ const Router = () => {
           path: "/game/:id",
           loader: getLevel,
           action: handleSubmitTarget,
+        },
+        {
+          element: <HighScore />,
+          path: "/game/highscore",
+          loader: getPlayers,
         },
       ],
     },
