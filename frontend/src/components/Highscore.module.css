@@ -1,0 +1,23 @@
+table {
+  border: 1px solid black;
+  text-align: center;
+  border-collapse: collapse;
+  padding: 1rem;
+}
+
+th,
+td {
+  border: 1px solid black;
+  padding: 1rem;
+}
+
+.titleSection {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
+.highScoreSection {
+  display: flex;
+  flex-flow: column wrap;
+  padding: 1rem;
+}
