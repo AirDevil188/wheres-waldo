@@ -27,3 +27,13 @@ export const getLevel = async ({ params }) => {
     throw new Error("You are not authorized to access this page!");
   }
 };
+
+export const getPlayers = async () => {
+  const res = await handleFetch(`/game/highscore`);
+
+  console.log(res);
+
+  if (res.ok) {
+    return await res.json();
+  }
+};
