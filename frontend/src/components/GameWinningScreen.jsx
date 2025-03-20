@@ -10,7 +10,7 @@ const GameWinningScreen = ({ gameScore, fetcher }) => {
         <h3>You have won!</h3>
       </section>
       <section className={styles.scoreSection}>
-        <h3>Your score is: {gameScore}</h3>
+        <h3>Your score is: {gameScore / 1000} seconds</h3>
       </section>
       <fetcher.Form method="post">
         <label htmlFor="username">Name: </label>
