@@ -62,9 +62,14 @@ const saveWinner = [
   }),
 ];
 
+const getHighScores = asyncHandler(async (req, res, next) => {
+  const players = await db.getPlayers();
+  return res.json(players);
+});
 module.exports = {
   getAllGameLevels,
   getGameLevel,
   validateTarget,
   saveWinner,
+  getHighScores,
 };
