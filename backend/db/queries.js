@@ -60,6 +60,19 @@ async function getUser(username) {
   }
 }
 
+async function getPlayers() {
+  try {
+    return await prisma.player.findMany({
+      orderBy: {
+        score: "asc",
+      },
+    });
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
+}
+
 async function validateTarget(name, xCord, yCord) {
   try {
     return await prisma.target.findFirst({
@@ -106,4 +119,5 @@ module.exports = {
   validateTarget,
   saveWinner,
   getUser,
+  getPlayers,
 };
