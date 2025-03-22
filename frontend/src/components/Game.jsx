@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./Game.module.css";
-import { useFetcher, useLoaderData, useParams } from "react-router";
+import { redirect, useFetcher, useLoaderData, useParams } from "react-router";
 import { handleFetch } from "../utils/handleFetch";
 import { TiTick } from "react-icons/ti";
 import Stopwatch from "../components/Stopwatch";
@@ -84,7 +84,7 @@ const Game = () => {
                     <section>
                       <p>{character.name}</p>
                     </section>
-                    <section>
+                    <section className={styles.iconBoxSection}>
                       <img src={character.image} alt={character.name} />
                       <TiTick
                         size={70}
@@ -115,7 +115,9 @@ const Game = () => {
         className={styles.gameSection}
         onClick={gameStatus === "playing" ? handleCharMenu : null}
       >
-        <img src={game.level.imageUrl} alt="Game Artwork" />
+        {gameStatus === "playing" ? (
+          <img src={game.level.imageUrl} alt="Game Artwork" />
+        ) : null}
       </section>
       <section className={styles.characterSelectMenu} ref={ref}>
         <fetcher.Form
@@ -155,7 +157,9 @@ const Game = () => {
       </section>
 
       <>
-        <GameWinningScreen gameScore={time} />
+        {gameStatus !== "playing" ? (
+          <GameWinningScreen gameScore={time} fetcher={fetcher} />
+        ) : null}
       </>
     </main>
   );
@@ -178,13 +182,11 @@ export const handleSubmitTarget = async ({ request, params }) => {
   };
   switch (true) {
     case button == "won":
-      console.log("WINNERS");
-      return (
+      (
         await handleFetch(`/game/${id}/winner`, winnerSubmission, "post")
       ).json();
-
+      return redirect("/game/highscore");
     case button !== "won":
-      console.log("finding target");
       return (await handleFetch(`/game/${id}`, submission, "post")).json();
   }
 };
