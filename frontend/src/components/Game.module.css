@@ -4,9 +4,6 @@ main {
   gap: 15px;
 }
 
-.gameSection {
-}
-
 .gameSection > img {
   width: 100%;
   position: relative;
@@ -26,10 +23,14 @@ main {
 
 .targetCharactersSection {
   display: flex;
+  flex-flow: row wrap;
   gap: 10px;
 }
 
-.character {
+.iconBoxSection {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
 }
 
 .character > section > img {
