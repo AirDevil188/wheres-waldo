@@ -1,3 +1,7 @@
+:root {
+  --highlight-color: #4e7988;
+}
+
 /* CSS RESET */
 
 html {
@@ -18,4 +22,22 @@ main {
   display: flex;
   justify-content: center;
   min-height: 100vh;
+}
+
+footer {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  background-color: var(--highlight-color);
+  padding: 1rem;
+  color: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+a:hover {
+  color: #ccc;
 }
