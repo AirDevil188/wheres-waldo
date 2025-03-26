@@ -1,5 +1,7 @@
 const host =
-  import.meta.env.NODE_ENV === "test" ? "http://192.168.1.99:3000" : "railway";
+  import.meta.env.NODE_ENV === "test"
+    ? "http://192.168.1.99:3000"
+    : "https://backend-production-b2ea.up.railway.app";
 // ;
 
 export const handleFetch = async (endpoint, input = undefined, method) => {
